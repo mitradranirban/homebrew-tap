@@ -7,7 +7,7 @@ cask "offed" do
   desc "Opentype Feature File Editor"
   homepage "https://gitlab.com/mitradranirban/offed"
 
-  app "offed.app"
+  app "OFFED.app"
 
   # This is the magic part that fixes the "damaged" error for users
   postflight do
