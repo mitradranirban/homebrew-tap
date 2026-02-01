@@ -1,10 +1,10 @@
 cask "offed" do
-  version "0.1.0" # Update this to match your release version
-  sha256 "PASTE_THE_SHA256_HASH_OF_YOUR_DMG_HERE"
+  version "0.2.0" 
+  sha256 "d9507a313c91a7ceb0dc609edfb8a2aa6a4fca855419017288078d703c5335b7"
 
-  url "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v#{version}/offed-macos-app.dmg"
+  url "https://fonts.atipra.in/dl/dmg/OFFED_0.2.0_universal.dmg"
   name "Offed"
-  desc "A hobby project built with Tauri and Rust" # Add your description
+  desc "Opentype Feature File Editor"
   homepage "https://gitlab.com/mitradranirban/offed"
 
   app "offed.app"
