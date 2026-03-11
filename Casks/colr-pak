@@ -1,0 +1,16 @@
+cask "colr-pak" do
+  version "0.1.0"   
+  sha256 "57266dde85877e832dab84ab6c45c9873470031fa2b5b51abdbd7714de66d0ef"
+
+  url "https://github.com/mitradranirban/colr-pak/releases/download/v0.1.0/colrpak-macos.zip"
+  name "Colr Pak"
+  desc "Standalone COLRv0/COLRv1 color font editor"
+  homepage "https://github.com/mitradranirban/colr-pak"
+
+  app "Color Pak.app"
+
+  zap trash: [
+    "~/Library/Application Support/xyz.fontra/ColorPak",
+    "~/Library/Preferences/xyz.fontra.ColorPak.plist"
+  ]
+end
