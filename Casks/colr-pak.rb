@@ -6,10 +6,10 @@ cask "colr-pak" do
   desc "Standalone COLRv0/COLRv1 color font editor"
   homepage "https://github.com/mitradranirban/colr-pak"
 
-  app "Color Pak.app"
+  app "Colr Pak.app"
 
   zap trash: [
-    "~/Library/Application Support/xyz.fontra/ColorPak",
-    "~/Library/Preferences/xyz.fontra.ColorPak.plist"
+    "~/Library/Application Support/xyz.fontra/ColrPak",
+    "~/Library/Preferences/xyz.fontra.ColrPak.plist"
   ]
 end
