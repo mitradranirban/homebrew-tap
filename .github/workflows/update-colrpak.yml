@@ -1,0 +1,50 @@
+name: Update colr-pak cask
+
+on:
+  repository_dispatch:
+    types: [colr-pak-release]
+
+jobs:
+  bump-cask:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v4
+
+      - name: Read payload
+        id: payload
+        run: |
+          VERSION="${{ github.event.client_payload.version }}"
+          ZIP_URL="${{ github.event.client_payload.zip_url }}"
+          # strip leading "v" if tag is like v0.1.3
+          CLEAN_VERSION="${VERSION#v}"
+          echo "version=$CLEAN_VERSION" >> $GITHUB_OUTPUT
+          echo "zip_url=$ZIP_URL" >> $GITHUB_OUTPUT
+
+      - name: Compute SHA256 from release asset
+        id: sha
+        run: |
+          curl -L "${{ steps.payload.outputs.zip_url }}" -o colrpak-macos.zip
+          SHA256=$(shasum -a 256 colrpak-macos.zip | awk '{print $1}')
+          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
+
+      - name: Update Casks/colr-pak.rb
+        run: |
+          VERSION="${{ steps.payload.outputs.version }}"
+          SHA="${{ steps.sha.outputs.sha256 }}"
+
+          sed -i.bak \
+            -e "s/^  version \".*\"/  version \"${VERSION}\"/" \
+            -e "s/^  sha256 \".*\"/  sha256 \"${SHA}\"/" \
+            -e "s|^  url \".*\"|  url \"https://github.com/mitradranirban/colr-pak/releases/download/v${VERSION}/colrpak-macos.zip\"|" \
+            Casks/colr-pak.rb
+
+          rm Casks/colr-pak.rb.bak
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/colr-pak.rb
+          git commit -m "chore: bump colr-pak to v${{ steps.payload.outputs.version }}"
+          git push
