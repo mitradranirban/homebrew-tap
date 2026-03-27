@@ -1,7 +1,7 @@
 cask "colr-pak" do
-  version "0.2.7"   
-  sha256 "485516ef8298e4dab07b97cd8e87bdf0a444d1ca731be7547f63a6660f3ee49f"
-  url "https://github.com/mitradranirban/colr-pak/releases/download/v0.2.7/colrpak-macos.zip"
+  version "0.3.0"   
+  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  url "https://github.com/mitradranirban/colr-pak/releases/download/v0.3.0/colrpak-macos.zip"
   name "Colr Pak"
   desc "Standalone COLRv0/COLRv1 color font editor"
   homepage "https://github.com/mitradranirban/colr-pak"
