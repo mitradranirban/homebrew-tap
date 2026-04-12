@@ -2,7 +2,7 @@ name: Update colr-pak cask
 
 on:
   repository_dispatch:
-    types: [colr-pak-release]
+    types: [update-manifest]
 
 jobs:
   bump-cask:
