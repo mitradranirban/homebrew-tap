@@ -9,7 +9,7 @@ cask "colr-pak" do
   app "Colr Pak.app"
 
   zap trash: [
-    "~/Library/Application Support/xyz.fontra/ColrPak",
-    "~/Library/Preferences/xyz.fontra.ColrPak.plist"
+    "~/Library/Application Support/in.atipra/ColrPak",
+    "~/Library/Preferences/in.atipra.ColrPak.plist"
   ]
 end
